@@ -6,7 +6,7 @@ import { fetchService } from "../common/root.ts";
 const keycloak = new Keycloak({
   url: "https://auth.pausegarra.es",
   realm: "principal",
-  clientId: "russian-cheatsheet",
+  clientId: "fakt",
 });
 
 export const authService: AuthService = new AuthServiceImpl(keycloak, fetchService);
