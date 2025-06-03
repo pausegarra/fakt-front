@@ -5,5 +5,5 @@ services:
     container_name: fakt
     image: psegarra/fakt:${VERSION}
     ports:
-      - "3035:80"
+      - "3036:80"
     restart: always
