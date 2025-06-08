@@ -1,0 +1,10 @@
+export interface CustomerEntity {
+  id: string;
+  name: string;
+  email: string;
+  nif: string;
+  address: string;
+  postcode: string;
+  city: string;
+  county: string;
+}
