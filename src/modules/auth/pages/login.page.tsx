@@ -10,7 +10,7 @@ export function LoginPage() {
 
   useEffect(() => {
     if (authService.isAuthenticated()) {
-      navigate("/");
+      navigate("/dashboard");
     }
   }, [navigate, user])
 
