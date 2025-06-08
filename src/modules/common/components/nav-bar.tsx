@@ -11,26 +11,6 @@ export function NavBar() {
       >
         Home
       </Nav>
-      <Nav
-        to="/russian-cases"
-      >
-        Russian Cases
-      </Nav>
-      <Nav
-        to="/alphabet"
-      >
-        Alphabet
-      </Nav>
-      <Nav
-        to="/vocabulary"
-      >
-        Vocabulary
-      </Nav>
-      <Nav
-        to="/motion-verbs"
-      >
-        Motion Verbs
-      </Nav>
     </>
   )
 }
