@@ -12,10 +12,13 @@ export function CustomerForm({form}: props) {
       <Title order={2}>Contact Data</Title>
 
       <Grid>
-        <Grid.Col span={{base: 12, md: 6}}>
-          <TextInput label="Name" placeholder="John" {...form.getInputProps("name")} />
+        <Grid.Col span={{base: 12, md: 4}}>
+          <TextInput label="Name" placeholder="John Doe SA" {...form.getInputProps("name")} />
         </Grid.Col>
-        <Grid.Col span={{base: 12, md: 6}}>
+        <Grid.Col span={{base: 12, md: 4}}>
+          <TextInput label="Contact Name" placeholder="John Doe" {...form.getInputProps("contactName")} />
+        </Grid.Col>
+        <Grid.Col span={{base: 12, md: 4}}>
           <TextInput label="Email" placeholder="john@example.com" {...form.getInputProps("email")} />
         </Grid.Col>
       </Grid>

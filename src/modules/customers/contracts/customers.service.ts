@@ -5,4 +5,8 @@ export interface CustomersService {
 
   findAll():  Promise<Paginated<CustomerEntity>>;
 
+  create(customer: CustomerEntity): Promise<CustomerEntity>;
+
+  findById(id: string): Promise<CustomerEntity>;
+
 }

@@ -9,13 +9,16 @@ import { customersService } from "../root.ts";
 import { notificationsService } from "../../common/root.ts";
 import { useErrorBoundary } from "react-error-boundary";
 import { NifOrEmailAlreadyExists } from "../exceptions/nif-or-email-already-exists.ts";
+import { useNavigate } from "react-router-dom";
 
 export function CreateCustomer() {
   const fetch = useFetch();
   const {showBoundary} = useErrorBoundary();
+  const navigate = useNavigate();
   const form = useForm<CustomerWithoutId>({
     initialValues: {
       name: "",
+      contactName: "",
       email: "",
       nif: "",
       address: "",
@@ -31,6 +34,7 @@ export function CreateCustomer() {
       await fetch(async () => customersService.create(form.values));
       notificationsService.success("Customer created successfully");
       form.reset();
+      navigate("/customers");
     } catch (e: any) {
       if (e instanceof NifOrEmailAlreadyExists) {
         notificationsService.error(e.message);

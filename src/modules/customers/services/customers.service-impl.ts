@@ -35,4 +35,11 @@ export class CustomersServiceImpl implements CustomersService {
     }
   }
 
+  findById(id: string): Promise<CustomerEntity> {
+    const token = this.authService.getAccessToken();
+    return this.http.get<CustomerEntity>(`/api/customers/${id}`, {}, {
+      "Authorization": `Bearer ${token}`
+    });
+  }
+
 }
