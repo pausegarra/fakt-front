@@ -7,4 +7,5 @@ export interface CustomerEntity {
   postcode: string;
   city: string;
   county: string;
+  country: string;
 }

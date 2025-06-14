@@ -4,19 +4,23 @@ import { customersService } from "../root.ts";
 import { CustomerEntity } from "../entities/customer-entity.ts";
 import { Paginated } from "../../common/responses/paginated.ts";
 import { Button, Group, Stack, Table, TextInput, Title } from "@mantine/core";
-import { HasPermission } from "../../common/components/has-permission.tsx";
+import { HasPermission } from "../../auth/components/has-permission.tsx";
 import { IconPlus, IconSearch } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import { useDebouncedState } from "@mantine/hooks";
 import { CustomerRow } from "../components/customer-row.component.tsx";
+import { useFetch } from "../../common/hooks/use-fetch.ts";
 
 export function ListCustomersPage() {
   const [customers, setCustomers] = useState<Paginated<CustomerEntity>>({} as Paginated<CustomerEntity>);
   const [search, setSearch] = useDebouncedState('', 500);
+  const fetch = useFetch();
 
   async function getCustomers() {
-    const customers = await customersService.findAll();
-    setCustomers(customers);
+    const customers = await fetch(async () => customersService.findAll());
+    if (customers) {
+      setCustomers(customers);
+    }
   }
 
   useEffect(() => {

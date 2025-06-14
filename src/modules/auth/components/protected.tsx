@@ -1,7 +1,7 @@
 import { ReactNode, useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../auth/contexts/auth.provider.ts";
+import { AuthContext } from "../contexts/auth.provider.ts";
 import { useErrorBoundary } from "react-error-boundary";
-import { authService } from "../../auth/root.ts";
+import { authService } from "../root.ts";
 
 type props = {
   children: ReactNode;

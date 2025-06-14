@@ -1,5 +1,5 @@
 import { ReactNode, useContext } from "react";
-import { AuthContext } from "../../auth/contexts/auth.provider.ts";
+import { AuthContext } from "../contexts/auth.provider.ts";
 
 type props = {
   children: ReactNode;

@@ -1,6 +1,6 @@
 import { Button, Group, Table } from "@mantine/core";
 import { CustomerEntity } from "../entities/customer-entity";
-import { HasPermission } from "../../common/components/has-permission.tsx";
+import { HasPermission } from "../../auth/components/has-permission.tsx";
 import { IconEdit, IconEye } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 
