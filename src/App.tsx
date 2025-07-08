@@ -3,20 +3,21 @@ import { commonRoutes } from "./modules/common/common.module.tsx";
 import "./app.css"
 import { authRoutes } from "./modules/auth/auth.module.tsx";
 import { AuthProvider } from "./modules/auth/contexts/auth.context.tsx";
-import { ErrorBoundary } from "react-error-boundary";
-import { ErrorFallback } from "./modules/common/components/error.tsx";
 import '@mantine/notifications/styles.css';
+import { customersRoutes } from "./modules/customers/customers.module.tsx";
+import { ErrorBoundaryWrapper } from "./modules/common/components/error-boundary-wrapper.tsx";
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-          <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <Routes>
-            {...commonRoutes}
-            {...authRoutes}
-          </Routes>
-          </ErrorBoundary>
+          <ErrorBoundaryWrapper>
+            <Routes>
+              {...commonRoutes}
+              {...authRoutes}
+              {...customersRoutes}
+            </Routes>
+          </ErrorBoundaryWrapper>
       </BrowserRouter>
     </AuthProvider>
   )

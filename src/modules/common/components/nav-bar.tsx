@@ -2,15 +2,23 @@ import { NavLink as MNavLink } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { ReactNode } from "react";
 import { IconChevronRight } from "@tabler/icons-react";
+import { HasPermission } from "../../auth/components/has-permission.tsx";
 
 export function NavBar() {
   return (
     <>
       <Nav
-        to="/"
+        to="/dashboard"
       >
-        Home
+        Dashboard
       </Nav>
+      <HasPermission permission={"customers#read"}>
+        <Nav
+          to="/customers"
+        >
+          Customers
+        </Nav>
+      </HasPermission>
     </>
   )
 }
