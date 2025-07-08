@@ -1,15 +1,15 @@
 import { CustomersService } from "../contracts/customers.service.ts";
 import { CustomerEntity } from "../entities/customer-entity.ts";
-import { IFetchService } from "@betino/fetch";
 import { Paginated } from "../../common/responses/paginated.ts";
 import { AuthService } from "../../auth/contracts/auth-service.ts";
 import { CustomerWithoutId } from "../types";
 import { NifOrEmailAlreadyExists } from "../exceptions/nif-or-email-already-exists.ts";
+import { FetchService } from "@betino/fetch";
 
 export class CustomersServiceImpl implements CustomersService {
 
   constructor(
-    private readonly http: IFetchService,
+    private readonly http: FetchService,
     private readonly authService: AuthService
   ) {}
 
@@ -46,6 +46,14 @@ export class CustomersServiceImpl implements CustomersService {
     const token = this.authService.getAccessToken();
 
     await this.http.delete(`/api/customers/${id}`, {
+      "Authorization": `Bearer ${token}`
+    });
+  }
+
+  async update(id: string, customer: CustomerWithoutId): Promise<CustomerEntity> {
+    const token = this.authService.getAccessToken();
+
+    return await this.http.put<CustomerEntity>(`/api/customers/${id}`, customer, {
       "Authorization": `Bearer ${token}`
     });
   }
