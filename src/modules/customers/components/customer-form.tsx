@@ -11,7 +11,7 @@ export function CustomerForm({form}: props) {
     <>
       <Title order={2}>Contact Data</Title>
 
-      <Grid>
+      <Grid mb={10}>
         <Grid.Col span={{base: 12, md: 4}}>
           <TextInput label="Name" placeholder="John Doe SA" {...form.getInputProps("name")} />
         </Grid.Col>
@@ -25,7 +25,7 @@ export function CustomerForm({form}: props) {
 
       <Title order={2}>Fiscal Data</Title>
 
-      <Grid>
+      <Grid mb={10}>
         <Grid.Col span={{base: 12, md: 6}}>
           <TextInput label="NIF" placeholder="ES12345678Z" {...form.getInputProps("nif")} />
         </Grid.Col>
@@ -45,6 +45,10 @@ export function CustomerForm({form}: props) {
           <TextInput label="County" placeholder="NY" {...form.getInputProps("county")} />
         </Grid.Col>
       </Grid>
+
+      <Title order={2}>Extras</Title>
+
+      <TextInput label={"Extra email recipients"} placeholder={"john.doe@example.com, john.doe@example.com"} {...form.getInputProps("emailExtraRecipients")} />
     </>
   );
 }

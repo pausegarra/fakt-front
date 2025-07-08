@@ -9,4 +9,5 @@ export interface CustomerEntity {
   city: string;
   county: string;
   country: string;
+  emailExtraRecipients: string;
 }

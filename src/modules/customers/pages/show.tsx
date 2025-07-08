@@ -65,6 +65,11 @@ export function ShowCustomer() {
           </Grid.Col>
         </Grid>
       </Card>
+
+      <Title order={3}>Emails</Title>
+      <Card>
+        <p><strong>Email extra recipients:</strong> {customer.emailExtraRecipients}</p>
+      </Card>
     </Layout>
   )
 }

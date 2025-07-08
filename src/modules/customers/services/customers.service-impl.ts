@@ -23,6 +23,7 @@ export class CustomersServiceImpl implements CustomersService {
   async create(customer: CustomerWithoutId): Promise<CustomerEntity> {
     try {
       const token = this.authService.getAccessToken();
+      console.log(customer);
       return await this.http.post<CustomerEntity>("/api/customers", customer, {
         "Authorization": `Bearer ${token}`
       });

@@ -26,6 +26,7 @@ export function CreateCustomer() {
       city: "",
       county: "",
       country: "",
+      emailExtraRecipients: "",
     },
   });
 

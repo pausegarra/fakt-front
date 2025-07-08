@@ -17,17 +17,7 @@ export function EditCustomerPage() {
   const fetch = useFetch();
   const {showBoundary} = useErrorBoundary();
   const form = useForm<CustomerWithoutId>({
-    initialValues: {
-      name: "",
-      contactName: "",
-      email: "",
-      nif: "",
-      address: "",
-      postcode: "",
-      city: "",
-      county: "",
-      country: "",
-    }
+    initialValues: {} as CustomerWithoutId,
   });
 
   const getCustomer = useCallback(async () => {
