@@ -42,4 +42,12 @@ export class CustomersServiceImpl implements CustomersService {
     });
   }
 
+  async delete(id: string): Promise<void> {
+    const token = this.authService.getAccessToken();
+
+    await this.http.delete(`/api/customers/${id}`, {
+      "Authorization": `Bearer ${token}`
+    });
+  }
+
 }

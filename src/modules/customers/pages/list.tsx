@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useDebouncedState } from "@mantine/hooks";
 import { CustomerRow } from "../components/customer-row.component.tsx";
 import { useFetch } from "../../common/hooks/use-fetch.ts";
+import { notificationsService } from "../../common/root.ts";
 
 export function ListCustomersPage() {
   const [customers, setCustomers] = useState<Paginated<CustomerEntity>>({} as Paginated<CustomerEntity>);
@@ -26,6 +27,13 @@ export function ListCustomersPage() {
   useEffect(() => {
     getCustomers();
   }, []);
+
+  async function deleteCustomer(id: string) {
+    await customersService.delete(id);
+    await getCustomers();
+
+    notificationsService.success("Customer deleted successfully");
+  }
 
   return (
     <Layout>
@@ -57,7 +65,7 @@ export function ListCustomersPage() {
           </Table.Thead>
           <Table.Tbody>
             {customers.data?.map(customer => (
-              <CustomerRow key={customer.id} customer={customer}/>
+              <CustomerRow key={customer.id} customer={customer} deleteCustomer={deleteCustomer} />
             ))}
           </Table.Tbody>
         </Table>

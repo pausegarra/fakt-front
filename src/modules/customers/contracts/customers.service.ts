@@ -9,4 +9,6 @@ export interface CustomersService {
 
   findById(id: string): Promise<CustomerEntity>;
 
+  delete(id: string): Promise<void>;
+
 }
