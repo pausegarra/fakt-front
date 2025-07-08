@@ -1,13 +1,13 @@
 import Keycloak from "keycloak-js";
 import { AuthService } from "../contracts/auth-service.ts";
 import { UserEntity } from "../entities/user.entity.ts";
-import { IFetchService } from "@betino/fetch";
+import { FetchService } from "@betino/fetch";
 
 export class AuthServiceImpl implements AuthService {
 
   constructor(
     private readonly keycloak: Keycloak,
-    private readonly http: IFetchService
+    private readonly http: FetchService
   ) {
   }
 
